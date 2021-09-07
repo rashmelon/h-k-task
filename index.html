@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird-solution</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+<body>
+    <div id="load">
+        <div v-for = "(inform , index) in info" :key="index" class="main">
+            <span class="customer"> {{ inform.userName }} </span>
+            <div class="view">
+                <div class="glyphicon glyphicon-signal"></div>
+                <span> {{ inform.lastVisited }} </span>
+                <div class="glyphicon glyphicon-list-alt" ></div>
+                <span>Engaged</span>
+            </div>
+            <div class="expired">
+                <span>  {{ inform.lastUpdated }} </span>
+                <p> {{ inform.expiryDate }} </p>
+            </div>
+            <div class="action">
+                <span  class="glyphicon glyphicon-pencil"> <span> Edit </span> </span>
+                <span class="glyphicon glyphicon-trash"> <span> Archive </span>  </span>
+                <span class="glyphicon glyphicon-envelope"> <span> Send </span> </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: "#load",
+            data: {
+                info: []
+            },
+            methods: {
+                getInfo(){
+                    axios.get('http://marvelous.alacrity.technology/api/example-api?paginate=10').then(res => {
+                        this.info = res.data.data.data;
+                    })
+                }
+            },
+            mounted() {
+                this.getInfo
+            }
+
+        })
+        
+        
+        
+    </script>
+
+</body>
+</html>

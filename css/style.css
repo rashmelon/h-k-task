@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(247, 239, 239, 0.952);
+}
+.main{
+    display: flex;
+    margin: 1%;
+    width: 98%;
+    background-color:rgba(255, 255, 255, 0.315);
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+.main .customer {
+    color: darkturquoise;
+    font-weight: bold;
+    font-size: 18px;
+}
+.view {
+    display: flex;
+    width: 12%;
+    justify-content: space-between;
+}
+.view div{
+    color: green;
+}
+.view span {
+    opacity: 0.7;
+}
+.expired {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+}
+.expired p {
+    color: rgb(204, 7, 7);
+}
+.action {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+    
+}
+.action span span {
+    opacity: 0.7;
+}
